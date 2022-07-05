@@ -1,0 +1,1 @@
+// Write a function call sumZero which accepts a sorted array of integers. The function should find ther first pair where the sum is 0. Return an array that includes both values that sum to zero or undefinded if a pair does not existed 
