@@ -41,3 +41,4 @@ function same (arr1, arr2){
   }
   return true
 }
+// since we only looping through each array to count the frequency of each val, therefore this function is only O(N)
