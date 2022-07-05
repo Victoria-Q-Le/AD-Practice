@@ -42,3 +42,27 @@ function same (arr1, arr2){
   return true
 }
 // since we only looping through each array to count the frequency of each val, therefore this function is only O(N)
+
+
+// Anagram Challenge, constraint there are all one words, all lowercase.
+function anagram(str1, str2){
+  let arr1 = str1.split(" ")
+  let arr2 = str2.split(" ")
+  if (arr1.length !== arr2.length){
+    return false
+  }
+  let frequencyCounter1 = {}
+  let frequencyCounter2 = {}
+  for (let char of arr1){
+    frequencyCounter1[char] = (frequencyCounter1[char] || 0) + 1
+  }
+  for (let char of arr2){
+    frequencyCounter2[char] = (frequencyCounter2[char] || 0) + 1
+  }
+  for (let key in frequencyCounter2){
+    if (!(key in frequencyCounter2)){
+      return false
+    }
+  }
+  return true
+}
