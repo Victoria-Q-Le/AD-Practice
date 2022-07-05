@@ -46,7 +46,7 @@ function same (arr1, arr2){
 
 // Anagram Challenge, constraint there are all one words, all lowercase.
 function anagram(str1, str2){
-  let arr1 = str1.split(" ")
+  let arr1 = str1.split(" ") //this turn string into arr and filters out the spaces 
   let arr2 = str2.split(" ")
   if (arr1.length !== arr2.length){
     return false
