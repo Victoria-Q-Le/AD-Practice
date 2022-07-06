@@ -11,4 +11,21 @@ function sumZero (arr) {
     }
   }
 }
-// this solution is not ideal because it is O(n2) time complexity 
+// this solution is not ideal because it is O(n2) time complexity and O(1) space complexity, the pro of this solution is that it can be applied for unsorted array
+
+// Solution 2:
+function sumZero (arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right){
+    let sum = arr[left] + arr[right]
+    if (sum === 0){
+      return [arr[left], arr[right]]
+    } else if (sum > 0){
+      right--
+    } else {
+      left++
+    }
+  }
+}
+// time complexity O(N), space complexity O(1)
