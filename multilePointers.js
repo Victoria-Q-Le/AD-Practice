@@ -62,6 +62,21 @@ function countUniqueValues (arr){
 // Multiple pointers from both ends then approaching the middle, however this approach is not ideal as it contained nested loops
 
 // Solution 2:
+function countUniqueValues(arr){
+  let i = 0
+  let j = 1
+  while (j < arr.length){
+    if (arr[i] === arr[j]){
+      j++
+    } else { //if arr[i] and arr[j] are not equal meaning they are both unique values, therefore i++ and change to the value of index j, at this time arr[i] and all of the values in front of it are unique. Then i+1 will be the total of unique values within the array 
+      i++
+      arr[i] = arr[j]
+    }
+  }
+  return i + 1
+}
+// Solution 2 is more ideal, because it O(N) time complexity without any nested loops, also it is easier to maintain and readable
+
 
 // Remember the acronym UPS check
 //
