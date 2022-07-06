@@ -36,7 +36,7 @@
 
 //Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
 
-// Solution:
+// Solution 1:
 function countUniqueValues (arr){
   // putting the unique values into the new array, then the arr.length +1 will be the total of the unique values
   let uniqueValues = []
@@ -44,17 +44,22 @@ function countUniqueValues (arr){
   let right = arr.length - 1
   while (left < right){
     let leftSum = arr[left] - arr[left + 1]
-    if (leftSum === 0){
+    let rightSum = arr[right] - arr[right - 1]
+    if (leftSum <= 0){
       left++
-    }
-    else if (leftSum !== 0){
+      if (arr[left] !== arr[left + 1] ){
       uniqueValues.push(arr[left])
-      console.log(uniqueValues)
+      }
+    }
+    else if (rightSum <= 0){
+      right--
+      if (arr[right] !== arr[right -1 ]){
+        uniqueValues.unshift(arr[right])
+      }
     }
   }
-}
-countUniqueValues([-3,-3,-2,-1,0,1,2,2,2,3])
-
+  return uniqueValues.length
+// Multiple pointers from both ends then approaching the middle, however this approach is not ideal as it contained nested loops
 // Remember the acronym UPS check
 //
 // Step One (Understand). We have to understand the problem.
