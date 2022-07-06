@@ -86,4 +86,3 @@ countUniqueValues([-3,-3,-2,-1,0,1,2,2,2,3])
 // 18.  Can you see it at a glance?
 // 19.  Can you make the code DRYer and refactor?
 // 20.  Can you improve the performance?
-// 21.   How have other people solved this problem?
