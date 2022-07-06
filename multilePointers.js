@@ -63,12 +63,15 @@ function countUniqueValues (arr){
 
 // Solution 2:
 function countUniqueValues(arr){
+  if (arr.length === 0){
+    return 0
+  }
   let i = 0
   let j = 1
   while (j < arr.length){
     if (arr[i] === arr[j]){
       j++
-    } else { //if arr[i] and arr[j] are not equal meaning they are both unique values, therefore i++ and change to the value of index j, at this time arr[i] and all of the values in front of it are unique. Then i+1 will be the total of unique values within the array 
+    } else { //if arr[i] and arr[j] are not equal meaning they are both unique values, therefore i++ and change to the value of index j, at this time arr[i] and all of the values in front of it are unique. Then i+1 will be the total of unique values within the array
       i++
       arr[i] = arr[j]
     }
