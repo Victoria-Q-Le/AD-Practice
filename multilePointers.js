@@ -60,6 +60,9 @@ function countUniqueValues (arr){
   }
   return uniqueValues.length
 // Multiple pointers from both ends then approaching the middle, however this approach is not ideal as it contained nested loops
+
+// Solution 2:
+
 // Remember the acronym UPS check
 //
 // Step One (Understand). We have to understand the problem.
