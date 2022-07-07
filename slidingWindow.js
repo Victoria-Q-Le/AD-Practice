@@ -55,5 +55,27 @@ function maxSubarraySum(arr, num){
   }
   return max
 }
+// cons: nested loop O(n2)
+
+
+/////////////////////Solution 2//////////////
+
+function maxSubarraySum(arr, num){
+  let maxSum = 0
+  let tempSum = 0
+  if (arr.length < num){
+    return null
+  }
+  for (let i = 0; i < num; i++){
+    maxSum += arr[i]
+  }
+  tempSum = maxSum
+  for (let i = num; i < arr.length; i++){
+    tempSum = tempSum - arr[i-num] + arr[i]
+    maxSum = Math.max(maxSum, tempSum)
+  }
+  return maxSum
+}
+//no nested loops O(n) time complexity, we dont have to readd to middle numbers, we are sliding the windown up, meaning we only have to compare the first element and the newly added elements to the window, if the newly added element is larger then we update the sum, if not the sum remains the same and the window keeps sliding. 
 
 maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
