@@ -112,3 +112,30 @@ function countUniqueValues(arr){
 // 18.  Can you see it at a glance?
 // 19.  Can you make the code DRYer and refactor?
 // 20.  Can you improve the performance?
+
+
+//////////////////////////////////////
+//Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether there are any duplicates among the arguments passed in.
+// Edge case: variable of arguments? Mixed of numbers and string or only string/number?
+function areThereDuplicates(...args) {
+  // Two pointers
+  args.sort();
+  let start = 0;
+  let next = 1;
+  while(next < args.length){
+    if(args[start] === args[next]){
+        return true
+    }
+    start++
+    next++
+  }
+  return false
+}
+
+
+function areThereDuplicates(){
+  //Linear Solution
+  return new Set(arguments).size !== arguments.length;
+}
+
+// Set is a collection of unique values 
