@@ -39,11 +39,11 @@
 
 /////////////////////////Solution 1////////////
 function maxSubarraySum(arr, num){
-  if (number > arr.length){ // this is help make sure that the number n given is smaller than the number of element within the array.
+  if (num > arr.length){ // this is help make sure that the number n given is smaller than the number of element within the array.
     return null
   }
   let max = -Infinity; //start at -infinity because we want to account for array with all negative number elements
-  for (let i = 0; i < arr.length - num + 1; i++){ // we didnt go to the end of the array because we want to ensure that posibble combination 
+  for (let i = 0; i < arr.length - num + 1; i++){ // we didnt go to the end of the array because we want to ensure that  last posibble combination contains n number of elements, also the index of array starts at 0 (ex: if the array has 6 elements, the last indice is 5, n = 3 => the last possible combination is 3-4-5 => last i = 3 => i < (6-3+1) = 4)
     temp = 0
     for (let j = 0; j < num; j++){
       temp += arr[i+j]
@@ -51,6 +51,9 @@ function maxSubarraySum(arr, num){
     if (temp > max){
       max = temp
     }
+    //console.log(temp, max);
   }
   return max
 }
+
+maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
