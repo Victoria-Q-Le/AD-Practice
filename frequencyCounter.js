@@ -66,3 +66,33 @@ function anagram(str1, str2){
   }
   return true
 }
+
+//Write a function called sameFrequency. Given 2 positive integers, find out if the two numbers have the same requency of digits. Your solution MUST hae the following complexities.
+
+function sameFrequency(int1, int2){
+  if (int1 === int2){
+    return true;
+  } else {
+    let str1 = int1.toString();
+    let str2 = int2.toString();
+    let counter1 = {};
+    let counter2 = {};
+    for (let val of str1){
+      counter1[val] = (counter1[val] || 0) + 1;
+    }
+    for (let val of str2){
+      counter2[val] = (counter2[val] || 0) + 1;
+    }
+    console.log(counter1);
+    console.log(counter2);
+    for (let key in counter1) {
+      if (!(key in counter2)) {
+        return false;
+      }
+       if (counter2[key] !== counter1[key]){
+         return false
+       }
+    }
+    return true
+  }
+}
