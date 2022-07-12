@@ -44,3 +44,18 @@ function collectOddValues (arr){
   // The end of recursive helper function
   return result
 }
+
+// solution 2, pure recursion without helper
+function collectOddValues(arr){
+  let newArr =[];
+
+  if (arr.length === 0){
+    return newArr;
+  }
+  if (arr[0] % 2 !== 0){
+    newArr.push(arr[0])
+  }
+  newArr = newArr.concat(collectOddValues(arr.slice(1)))
+  return newArr
+}
+// Everytime the collectOddValues is called recursively the newArr will be reseted to an empty array, therefore we concat all the newArr arrays together to return the final result 
