@@ -58,4 +58,14 @@ function collectOddValues(arr){
   newArr = newArr.concat(collectOddValues(arr.slice(1)))
   return newArr
 }
-// Everytime the collectOddValues is called recursively the newArr will be reseted to an empty array, therefore we concat all the newArr arrays together to return the final result 
+// Everytime the collectOddValues is called recursively the newArr will be reseted to an empty array, therefore we concat all the newArr arrays together to return the final result
+
+
+
+//Write a function called power which accepts a base and an exponent. The function should return the power of the base to the exponent. The function should miminc the functionality of Math.pow() - do not worry aabout negative bases and exponents.
+function power(base, exponent){
+    if (exponent === 0) {
+        return 1;
+    }
+    return base * power(base,(exponent - 1))
+}
