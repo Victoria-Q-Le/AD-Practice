@@ -80,4 +80,18 @@ function factorial(num){
 }
 
 
-//Write a function called productOfArray which takes in an array of numbers and returns the product of them all. 
+//Write a function called productOfArray which takes in an array of numbers and returns the product of them all.
+function productOfArray (arr){
+    let result = 1
+    function helper (helperInput){
+        if (helperInput.length === 0){
+            return
+        }
+        if (helperInput.length !== 0){
+            result = result * helperInput[0]
+        }
+        helper(helperInput.slice(1))
+    }
+    helper(arr)
+    return result
+}
