@@ -118,3 +118,11 @@ function reverse(str) {
     if (str.length <= 1) return str;
     return reverse(str.slice(1)) + str[0]
 }
+
+// Write a recursive function called isPalindrome which returns true if the string passed to it is a palindrome. Otherwise it return false.
+function isPalindrome(str){
+  if (str.length === 1) return true;
+  if (str.length === 2) return str[0] === str[1]
+  if (str[0] === str.slice(-1)) return isPalindrome(str.slice(1,-1)) //-1 means slicing the array from the last element of the array.
+  return false
+}
