@@ -126,3 +126,23 @@ function isPalindrome(str){
   if (str[0] === str.slice(-1)) return isPalindrome(str.slice(1,-1)) //-1 means slicing the array from the last element of the array.
   return false
 }
+
+// Write a function called someRecursive which accepts an array and a callback. The functions returns true if a single value in the array returns true when passed to the callback. Otherwise it returns false.
+function someRecursive(arr, callback){
+  if (arr.length === 0) return false
+  if (callback(arr[0])) return true
+  return someRecursive(arr.slice(1), callback)
+}
+
+// Write a recursive function called flatten which accepts an array of arrays and returns a new array with all values flattened.
+function flatten(oldArr){
+  var newArr = []
+  	for(var i = 0; i < oldArr.length; i++){
+    	if(Array.isArray(oldArr[i])){
+      		newArr = newArr.concat(flatten(oldArr[i]))
+    	} else {
+      		newArr.push(oldArr[i])
+    	}
+  }
+  return newArr;
+}
