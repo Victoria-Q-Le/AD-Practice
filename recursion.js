@@ -69,3 +69,15 @@ function power(base, exponent){
     }
     return base * power(base,(exponent - 1))
 }
+
+
+//Write a funtion fatorial which accepts a number and return the factorial of that number. A factorial is the product of an integer and all the integers below it.
+function factorial(num){
+   if (num === 0){
+       return 1
+   }
+   return num * factorial(num - 1)
+}
+
+
+//Write a function called productOfArray which takes in an array of numbers and returns the product of them all. 
