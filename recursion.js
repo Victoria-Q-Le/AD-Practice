@@ -147,7 +147,7 @@ function flatten(oldArr){
   return newArr;
 }
 
-// Write a function called capitalizeFirst. Given an array of strings, capitalize the first letter of each string in the array
+// Write a recursive function called capitalizeFirst. Given an array of strings, capitalize the first letter of each string in the array
 function capitalizeFirst(arr){
   let capitalizedArray = []
   for (let word of arr) {
@@ -157,14 +157,17 @@ function capitalizeFirst(arr){
   return capitalizedArray
 }
 // Solution 1 - non recursive
-
 function capitalizeFirst(arr){
   let capitalizedArray = []
-  if (arr.length === 0) return
+  if (arr.length === 0) {
+    return capitalizedArray
+  }
   if (arr.length !== 0){
     capitalizedWord = arr[0].charAt(0).toUpperCase() + arr[0].slice(1)
     capitalizedArray.push(capitalizedWord)
     return capitalizedArray.concat(capitalizeFirst(arr.slice(1)))
   }
 }
-// Solution 2, recursive solution, however, keeps running into undefined at last element of the new array
+
+
+// Solution 2, recursive solution
