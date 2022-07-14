@@ -136,8 +136,8 @@ function someRecursive(arr, callback){
 
 // Write a recursive function called flatten which accepts an array of arrays and returns a new array with all values flattened.
 function flatten(oldArr){
-  var newArr = []
-  	for(var i = 0; i < oldArr.length; i++){
+  let newArr = []
+  	for(let i = 0; i < oldArr.length; i++){
     	if(Array.isArray(oldArr[i])){
       		newArr = newArr.concat(flatten(oldArr[i]))
     	} else {
@@ -146,3 +146,14 @@ function flatten(oldArr){
   }
   return newArr;
 }
+
+// Write a function called capitalizeFirst. Given an array of strings, capitalize the first letter of each string in the array
+function capitalizeFirst(arr){
+  let capitalizedArray = []
+  for (let word of arr) {
+    capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1)
+    capitalizedArray.push(capitalizedWord)
+  }
+  return capitalizedArray
+}
+// Solution 1 - non recursive
