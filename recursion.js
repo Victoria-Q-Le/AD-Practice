@@ -157,3 +157,14 @@ function capitalizeFirst(arr){
   return capitalizedArray
 }
 // Solution 1 - non recursive
+
+function capitalizeFirst(arr){
+  let capitalizedArray = []
+  if (arr.length === 0) return
+  if (arr.length !== 0){
+    capitalizedWord = arr[0].charAt(0).toUpperCase() + arr[0].slice(1)
+    capitalizedArray.push(capitalizedWord)
+    return capitalizedArray.concat(capitalizeFirst(arr.slice(1)))
+  }
+}
+// Solution 2, recursive solution, however, keeps running into undefined at last element of the new array
