@@ -168,6 +168,17 @@ function capitalizeFirst(arr){
     return capitalizedArray.concat(capitalizeFirst(arr.slice(1)))
   }
 }
-
-
 // Solution 2, recursive solution
+
+
+// Write a recursive function called nestedEvenSum. Return the sum of all even members in an object which may contain nested objects.
+function nestedEvenSum(obj, total = 0){
+  for (let key in obj){
+    if (typeof obj[key] === 'object'){
+      total += nestedEvenSum(obj[key])
+    } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0){
+      total += obj[key]
+    }
+  }
+  return total
+}
