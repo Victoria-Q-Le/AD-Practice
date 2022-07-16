@@ -25,3 +25,19 @@ function binarySearch (arr, val){
   }
   return arr[middle] === val ? middle : -1
 }
+
+// Naive String Search Pseudocode
+// Loop over the long string, loop over the shorter string. If the characters dont match, break out of the inner loop. If the characters do match, keep going. If you complete the inner loop and find the match, icrement the count of the matches. Return the count
+function naiveSearch (str, substr, count = 0){
+    for (let i = 0; i < str.length; i++){
+        for (let j = 0; j < substr.length; j++){
+            if (substr[j] !== str[i+j]){ //Everytime j and i dont match, the loop will be break and i gets incremented. 
+                break;
+            }
+            if (j === substr.length -1){
+                count++
+            }
+        }
+    }
+    return count
+}
