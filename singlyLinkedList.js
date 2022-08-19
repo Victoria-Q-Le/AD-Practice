@@ -13,7 +13,7 @@
 //   - Insertion and deletion can be expensive
 //   - Can quickly be accessed at a specific index
 //
-// 3. Stater Code and Push Control:
+// 3. Stater Code, Push, Pop Control:
 //- Node: store a piece of data, and reference to next node
 class Node {
   constructor (val) {
@@ -38,10 +38,27 @@ class SinglyLinkedList {
       this.tail = newNode
     } else { //if the list is not empty
       this.tail.next = newNode //set the next property of the current tail to be the newNode
-      this.tail = newNode //update the tail 
+      this.tail = newNode //update the tail
     }
     this.length++ //increament the length of the list
     return this //to retrun the whole list
+  }
+  pop(){
+    if (!this.head) return undefined //EDGE CASE: when the list is empty
+    let current = this.head //start at the begining to the list
+    let newTail = current
+    while (current.next){ //while there is a node after current
+      newTail = current //because the node right before the current tail will become the new tail.
+      current = current.next //current gets move up to the next node
+    }
+    this.tail = newTail //tail gets updated to the node right before the last node
+    this.tail.next = null //newTail updated, the node after will get pop off.
+    this.length-- //decreament the length of the list
+    if (this.length === 0){ //In case the list only have 1 node left before the pop
+      this.head = null
+      this.tail = null
+    }
+    return  current
   }
 }
 
