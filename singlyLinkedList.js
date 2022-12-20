@@ -31,7 +31,7 @@ class SinglyLinkedList {
     this.tail = null
     this.length = 0
   }
-  push(val){ //this function should accept a value
+  push(val){ //this function should accept a value => this is a methodß
     let newNode = new Node (val) //create a new node using the value passed to the function
     if (!this.head){ //if there is no head, meaning it is an empty list
       this.head = newNode
