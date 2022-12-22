@@ -75,9 +75,10 @@ class SinglyLinkedList {
     if (!this.head){ // if there is no head property on the list, set the head and tail to be the newly created node 
       this.head = newNode
       this.tail = newNode
+    } else {
+        newNode.next = this.head //otherwise set the newly created node's NEXT property to be the current head on the list
+        this.head = newNode //set the head property on the list to be that newly created node 
     }
-    newNode.next = this.head //otherwise set the newly created node's NEXT property to be the current head on the list
-    this.head = newNode //set the head property on the list to be that newly created node 
     this.length++ //increment the length of the list by 1 
     return this //return the linked list
   }
