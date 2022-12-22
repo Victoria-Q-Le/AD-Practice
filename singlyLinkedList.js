@@ -92,6 +92,14 @@ class SinglyLinkedList {
     }
     return current
   }
+  set(index, val){
+    const foundNode = this.get(index)
+    if(foundNode){
+      foundNode.val = val 
+      return true
+    }
+    return false
+  }
 }
 
 let list = new SinglyLinkedList ()
