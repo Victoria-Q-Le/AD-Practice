@@ -31,14 +31,14 @@ class SinglyLinkedList {
     this.tail = null
     this.length = 0
   }
-  push(val){ //this function should accept a value => this is a methodß
+  push(val){ //this function should accept a value => this is a method
     let newNode = new Node (val) //create a new node using the value passed to the function
     if (!this.head){ //if there is no head, meaning it is an empty list
       this.head = newNode
-      this.tail = newNode
+      this.tail = this.head
     } else { //if the list is not empty
       this.tail.next = newNode //set the next property of the current tail to be the newNode
-      this.tail = newNode //update the tail
+      this.tail = newNode //update the tail, move the tail marker over 
     }
     this.length++ //increament the length of the list
     return this //to retrun the whole list
