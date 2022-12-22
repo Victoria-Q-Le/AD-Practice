@@ -60,6 +60,16 @@ class SinglyLinkedList {
     }
     return  current
   }
+  shift(){
+    if(!this.head) return undefined //if there are no head, return undefined
+    const currentHead = this.head //store the current head property in a variable 
+    this.head = currentHead.next //set the current head property to be the current's next property
+    this.length-- //decrease the length
+    if(this.length === 0){
+      this.tail = null
+    }
+    return currentHead
+  }
 }
 
 let list = new SinglyLinkedList ()
