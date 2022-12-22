@@ -82,6 +82,16 @@ class SinglyLinkedList {
     this.length++ //increment the length of the list by 1 
     return this //return the linked list
   }
+  get(index){ //this function should accept an index 
+    if(index < 0 || index >= this.length) return null // if the index is less than zero or greater than or euqal to the length of the list, return null 
+    const counter = 0
+    const current = this.head 
+    while (counter !== index ){ // loop through the list until you reach the index and return the node at that specific index 
+      current = current.next 
+      counter++
+    }
+    return current
+  }
 }
 
 let list = new SinglyLinkedList ()
