@@ -100,6 +100,9 @@ class SinglyLinkedList {
     }
     return false
   }
+  insert(){
+    //if the index is less than zero or greater than the length, return false 
+  }
 }
 
 let list = new SinglyLinkedList ()
