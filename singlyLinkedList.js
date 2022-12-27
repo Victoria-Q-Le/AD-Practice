@@ -105,7 +105,7 @@ class SinglyLinkedList {
     if(index === this.length) return !!this.push(val)//if the index is the same as the length, push a new node to the end of the list !!operator (bang bang operator to convert to boolean)
     if(index === 0) return !!this.unshift(val)//if the index is 0, unshift a new node to the start of the list 
 
-    
+
     const newNode = new Node(val)
     const prev = this.get(index -1) //otherwise, using the GET method, access the node at the (index - 1 ) 
     const temp = prev.next //this is a place holder 
@@ -114,6 +114,18 @@ class SinglyLinkedList {
     this.length++//increment the length
     return true //return true - this means the method works
   }
+  remove(index){
+    if(index < 0 || index >= this.length) return undefined//if the index is less than 0 or greater than the length, return the undefined
+    if(index === this.length -1 ) return this.pop()//if the index is the same as trhe length-1, pop
+    if(index === 0) return this.shift()//if the index is 0, shift 
+    
+    const prevNode = this.get(index-1)//otherwise, using the GET method, access the node at the index-1 
+    const removed = prevNode.next
+    prevNode.next = removed.next//set the next property on that node to be the next of the next node 
+    this.length--//decreament the length
+    return removed//return the value of the node removed 
+  }
+
 }
 
 let list = new SinglyLinkedList ()
