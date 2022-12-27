@@ -101,16 +101,18 @@ class SinglyLinkedList {
     return false
   }
   insert(index, val){
-    if(index < 0 || index > this.length) { //if the index is less than zero or greater than the length, return false 
-      return false 
-    } 
-    //if the index is the same as the length, push a new node to the end of the list 
-    //if the index is 0, unshift a new node to the start of the list 
-    //otherwise, using the GET method, access the node at the (index - 1 ) 
-    //set the next property on that node to be the new node 
-    //set the next property on the new node to be the previous next
-    //increment the length
-    //return true 
+    if(index < 0 || index > this.length) return false  //if the index is less than zero or greater than the length, return false 
+    if(index === this.length) return !!this.push(val)//if the index is the same as the length, push a new node to the end of the list !!operator (bang bang operator to convert to boolean)
+    if(index === 0) return !!this.unshift(val)//if the index is 0, unshift a new node to the start of the list 
+
+    
+    const newNode = new Node(val)
+    const prev = this.get(index -1) //otherwise, using the GET method, access the node at the (index - 1 ) 
+    const temp = prev.next //this is a place holder 
+    prev.next = newNode//set the next property on that node to be the new node 
+    newNode.next = temp//set the next property on the new node to be the previous next
+    this.length++//increment the length
+    return true //return true - this means the method works
   }
 }
 
