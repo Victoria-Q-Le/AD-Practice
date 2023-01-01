@@ -125,6 +125,28 @@ class SinglyLinkedList {
     this.length--//decreament the length
     return removed//return the value of the node removed 
   }
+  print(){
+    const arr []
+    const current = this.head 
+    while (current){
+      arr.push(current.val)
+      current = current.next 
+    }
+    console.log(arr);
+  }
+  reverse(){
+    const node = this.head//swap the head and tail 
+    this.head = this.tail 
+    this.tail = node 
+    //create a variable called next 
+    //creat a variable called prev 
+    //create a varaible called node and initialize it to the head property
+    //loop through the list 
+    //set next to be the next property on whatever node is 
+    //set the next property on the node to be whatever prev is 
+    //set prev to be the value of the node variable 
+    //set the node variable to be the value of the next variable 
+  }
 
 }
 
