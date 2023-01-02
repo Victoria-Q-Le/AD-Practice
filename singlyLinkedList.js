@@ -135,21 +135,28 @@ class SinglyLinkedList {
     console.log(arr);
   }
   reverse(){
-    const node = this.head//swap the head and tail 
+    const node = this.head//swap the head and tail, create a variable called node and initialize it to be the head property 
     this.head = this.tail 
     this.tail = node 
-    //create a variable called next 
-    //creat a variable called prev 
-    //create a varaible called node and initialize it to the head property
-    //loop through the list 
-    //set next to be the next property on whatever node is 
-    //set the next property on the node to be whatever prev is 
-    //set prev to be the value of the node variable 
-    //set the node variable to be the value of the next variable 
+    const next //create a variable called next 
+    const prev = null //creat a variable called prev, prev has to be null because  we want to make the end of our list - the tail.next is null 
+    for(const i = 0; i < this.length; i++){ //loop through the list 
+      next = node.next //set next to be the next property on whatever node is 
+      node.next = prev //set the next property on the node to be whatever prev is 
+      prev = node //set prev to be the value of the node variable 
+      node = next 
+    }
+    return this
   }
-
 }
 
 let list = new SinglyLinkedList ()
 list.push("Hello")
 list.push("there") //this will be added to the end of the list so we dont have to keep typing .next multiple times
+
+
+///////////////////////////////////////////BIG O NOTATION////////////////////////////////////////////////////
+//INSERTION - O(1), we add thing to the begining of the list without having to re index the whole list => better than using array 
+//REMOVAL - O(1) or O(N), depends on which position
+//SEARCHING - O(N)
+//ACCESS - O(N)
