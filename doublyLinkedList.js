@@ -27,6 +27,18 @@ class DoublyLinkedList{
         }
         this.length++// increment the length 
         return this // return the list 
-
+    }
+    pop(){
+        if (!this.head) return undefined //if there is no head, return undefined 
+        const poppedNode = this.tail //store the current tail in a variable to return later
+        if (this.length === 1) {//if the length is 1, set the head and tail to be null
+            this.head = null
+            this.tail = null
+        } else {
+            this.tail = poppedNode.prev //uodate the tail to be the prev Node 
+            this.tail.next = null //set the newTail's next to be null
+        }
+        this.length-- //decreament the length
+        return poppedNode //return the poppedNode
     }
 }
