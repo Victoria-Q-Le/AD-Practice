@@ -37,8 +37,22 @@ class DoublyLinkedList{
         } else {
             this.tail = poppedNode.prev //uodate the tail to be the prev Node 
             this.tail.next = null //set the newTail's next to be null
+            poppedNode.prev = null //this to make sure the tail after pop wont have any value lingering to it 
         }
         this.length-- //decreament the length
         return poppedNode //return the poppedNode
+    }
+    shift(){ //remove from the begining 
+        if (this.length === 0) return undefined //edge case 
+        const oldHead = this.head 
+        if (this.length === 1){ //edge case
+            this.head = null
+            this.tail = null
+        }
+        this.head = oldHead.next
+        this.head.prev = null 
+        oldHead.next = null
+        this.length--
+        return oldHead
     }
 }
