@@ -28,7 +28,7 @@ class DoublyLinkedList{
         this.length++// increment the length 
         return this // return the list 
     }
-    pop(){
+    pop(){ //remove from the END of the list 
         if (!this.head) return undefined //if there is no head, return undefined 
         const poppedNode = this.tail //store the current tail in a variable to return later
         if (this.length === 1) {//if the length is 1, set the head and tail to be null
@@ -55,5 +55,18 @@ class DoublyLinkedList{
         }
         this.length--
         return oldHead
+    }
+    unshift(val){ //adding a node to the beginind of the list 
+        const newHead = new Node (val)
+        if (this.length === 0){
+            this.head = newHead
+            this.tail = newHead
+        } else {
+            this.head.prev = newHead 
+            newHead.next = this.head 
+            this.head = newHead
+        }
+        this.length++
+        return this
     }
 }
