@@ -94,6 +94,20 @@ class DoublyLinkedList{
             foundNode.val = value 
             return true 
         }
-        return false 
+        return false
+    }
+    insert(index,value){ //adding a node in a doubly linked list by a certain position
+        if (index < 0 || index > this.length) return false 
+        if (index === 0) return this.unshift(value)
+        if (index === this.length) return this.push(value)
+        const newNode = new Node (value)
+        const beforeNode = this.get(index-1)
+        const afterNode = beforeNode.next
+        beforeNode.next = newNode 
+        newNode.prev = beforeNode
+        newNode.next = afterNode
+        afterNode.prev = newNode
+        this.length++
+        return true 
     }
 }
