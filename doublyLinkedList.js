@@ -104,7 +104,7 @@ class DoublyLinkedList{
         const newNode = new Node (value)
         const beforeNode = this.get(index-1)
         const afterNode = beforeNode.next
-        
+
         beforeNode.next = newNode 
         newNode.prev = beforeNode
         newNode.next = afterNode
@@ -112,4 +112,18 @@ class DoublyLinkedList{
         this.length++
         return true 
     }
-}
+    remove(index){
+        if (index < 0 || index >= this.length) return false 
+        if (index === 0) return !!this.shift()
+        if (index === this.length - 1) return !!this.pop()
+        const removedNode = this.get(index)
+        const beforeNode = removedNode.prev 
+        const afterNode = removedNode.next
+        beforeNode.next = afterNode
+        afterNode.prev = beforeNode
+        removedNode.next = null
+        removedNode.prev = null 
+        this.length--
+        return removedNode
+    }
+} 
