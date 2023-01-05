@@ -88,4 +88,12 @@ class DoublyLinkedList{
         }
         return current
     }
+    set(index,value){ //replacing the value of a node in a doubly linked list 
+        const foundNode = this.get(index)
+        if (foundNode !== null){
+            foundNode.val = value 
+            return true 
+        }
+        return false 
+    }
 }
