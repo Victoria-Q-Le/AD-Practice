@@ -56,7 +56,7 @@ class DoublyLinkedList{
         this.length--
         return oldHead
     }
-    unshift(val){ //adding a node to the beginind of the list 
+    unshift(val){ //adding a node to the begining of the list 
         const newHead = new Node (val)
         if (this.length === 0){
             this.head = newHead
@@ -68,5 +68,24 @@ class DoublyLinkedList{
         }
         this.length++
         return this
+    }
+    get(index){ //take in an index and return the value of that value 
+        if (index < 0 || index >= this.length) return undefined
+        if (index <= this.length/2){
+            const count = 0
+            const current = this.head 
+            while (count !== index ){
+                current = current.next
+                count++
+            }
+        } else {
+            const count = this.length - 1
+            const current = this.tail
+            while (count !== index){
+                current = current.prev 
+                count--
+            }
+        }
+        return current
     }
 }
