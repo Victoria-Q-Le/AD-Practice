@@ -148,3 +148,4 @@ class DoublyLinkedList{
 // Removal O(1)
 // Searching O(N)
 // Access O(N)
+// Use case: browsing history, can be hit backward and forward 
