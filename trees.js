@@ -44,6 +44,33 @@ class BinarySearchTree {
     constructor(){ //can take a vlue here and use it as the initial value of the root 
         this.root = null
     }
+    insert (val){
+        const newNode = new Node(val)
+        if (this.root === null){
+            this.root = newNode
+            return this
+        } else {
+            const current = this.root 
+            while (true){
+                if (val === current.value ) return undefined
+                if (val < current.value){
+                    if (current.left === null){
+                        current.left = newNode
+                        return this
+                    } else {
+                        current = current.left
+                    }
+                } else if (value > current.value){
+                    if (current.right === null){
+                        current.right = newNode
+                        return this 
+                    }else {
+                        current = current.right
+                    }
+                }
+            }
+        }
+    }
 }
 
 const tree = new BinarySearchTree()
