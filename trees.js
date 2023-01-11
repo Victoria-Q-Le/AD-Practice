@@ -64,7 +64,7 @@ class BinarySearchTree {
                     if (current.right === null){
                         current.right = newNode
                         return this 
-                    }else {
+                    } else {
                         current = current.right
                     }
                 }
