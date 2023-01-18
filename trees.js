@@ -41,7 +41,7 @@ class Node {
 }
 
 class BinarySearchTree {
-    constructor(){ //can take a vlue here and use it as the initial value of the root 
+    constructor(){ //can take a value here and use it as the initial value of the root 
         this.root = null
     }
     insert (val){
@@ -70,6 +70,22 @@ class BinarySearchTree {
                 }
             }
         }
+    }
+    find(value){
+        if (this.root === null) return false 
+        const current = this.root 
+        const found = false 
+        while (current && !found){
+            if (value < current.value){
+                current = current.left 
+            } else if (value > current.value){
+                current = current.right
+            } else {
+                found = true 
+            }
+        }
+        if (!found) return undefined 
+        return current 
     }
 }
 
