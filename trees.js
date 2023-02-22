@@ -98,7 +98,7 @@ class BinarySearchTree {
         } 
         return data//return the varaiable that stores the values   
     }
-    DFSP(){ //DFS PreOrder - traverse the the tree using depth starting on the left side 
+    DFSPr(){ //DFS PreOrder - traverse the the tree using depth starting on the left side 
         const data = []//create a variable to store the values of nodes visited
         const current = this.root//store the root of the bst in a variable called current, this step can be simplified but used here in case user doesnt want to traverse the whole tree 
         function traverse(node){//write a helper function which accepts node
@@ -108,6 +108,17 @@ class BinarySearchTree {
         } 
         traverse(current)//Invoke the helper function with the current node
         return data//retunr the array of values
+    }
+    DFSPo(){ //DFS PostOder 
+        const data = []
+        const current = this.root
+        function traverse(node){
+            if (node.left) traverse(node.left)
+            if (node.right) traverse(node.right)
+            data.push(node.value)
+        }
+        traverse(current)
+        return data 
     }
 }
 
