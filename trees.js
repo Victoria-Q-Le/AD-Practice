@@ -87,6 +87,18 @@ class BinarySearchTree {
         if (!found) return undefined 
         return current 
     }
+    BFS(){
+        const data = [], queue = [], node = this.root//create a queue (this can be an array) and a variable to store the values of the nodes visited
+        queue.push(node)//place the root node in the queue 
+        while(queue.length){//loop as long as there is anything in the queue
+            node = queue.shift()//  dequeue a node from the queue and push the value of the node into the variable that stores the nodes 
+            data.push(node)
+            if(node.left) queue.push(node.left)//  if there a left property on the node dequeued - add it to the queue 
+            if(node.right) queue.push(node.right)//  if there is a right property on the node dequeued - add it to the queue
+        } 
+        return data//return the varaiable that stores the values   
+
+    }
 }
 
 const tree = new BinarySearchTree()
@@ -99,3 +111,7 @@ tree.root.right
 //////BIG O///////
 // Insertion - O(log n)
 // Searching - O(log n)
+
+// //Traverse = visit every node one time, there are 2 main ways traversing a tree
+// - Breadth-first search: across 
+// - Depth-first Search: vertical 
