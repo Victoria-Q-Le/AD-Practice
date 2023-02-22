@@ -147,3 +147,7 @@ tree.root.right
 // //Traverse = visit every node one time, there are 2 main ways traversing a tree
 // - Breadth-first search: across 
 // - Depth-first Search: vertical 
+//Use cases: 
+// - DFS: lots of nodes to keep track off, less space complexity then the BFS 
+// - DFS Inorder: getting all the  nodes of tree in their underlying order 
+// - DFS Preorder: can be used to export a tree structure so that it is easily reconstructed or copied 
