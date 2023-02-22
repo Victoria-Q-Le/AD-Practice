@@ -120,6 +120,17 @@ class BinarySearchTree {
         traverse(current)
         return data 
     }
+    DFSIn(){ //DFS InOrder 
+        const data = []
+        const current = this.root
+        function traverse(node){
+            if (node.left) traverse(node.left)
+            data.push(node.value)
+            if(node.right) traverse(node.right)
+        }
+        traverse(current)
+        return data
+    }
 }
 
 const tree = new BinarySearchTree()
