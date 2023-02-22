@@ -92,7 +92,7 @@ class BinarySearchTree {
         queue.push(node)//place the root node in the queue 
         while(queue.length){//loop as long as there is anything in the queue
             node = queue.shift()//  dequeue a node from the queue and push the value of the node into the variable that stores the nodes 
-            data.push(node)
+            data.push(node.value)
             if(node.left) queue.push(node.left)//  if there a left property on the node dequeued - add it to the queue 
             if(node.right) queue.push(node.right)//  if there is a right property on the node dequeued - add it to the queue
         } 
