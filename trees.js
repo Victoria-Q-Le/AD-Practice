@@ -97,7 +97,17 @@ class BinarySearchTree {
             if(node.right) queue.push(node.right)//  if there is a right property on the node dequeued - add it to the queue
         } 
         return data//return the varaiable that stores the values   
-
+    }
+    DFSP(){ //DFS PreOrder - traverse the the tree using depth starting on the left side 
+        const data = []//create a variable to store the values of nodes visited
+        const current = this.root//store the root of the bst in a variable called current, this step can be simplified but used here in case user doesnt want to traverse the whole tree 
+        function traverse(node){//write a helper function which accepts node
+            data.push(node.value)//push the value of the node to the variable that stores the values 
+            if (node.left) traverse(node.left)//if the node has left pro, call the helper function with the left pro on the node 
+            if(node.right) traverse(node.right)//if the node has a right pro, call the helper functin with the right pro on the node
+        } 
+        traverse(current)//Invoke the helper function with the current node
+        return data//retunr the array of values
     }
 }
 
