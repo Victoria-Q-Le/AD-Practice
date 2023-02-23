@@ -56,4 +56,11 @@ class HashTable {
         }
         return total
     }
+    set(key, value){
+        let index = this._hash(key)
+        if (!this.keyMap[index]){
+            this.keyMap[index] = [] //if the locker is not occupied we then have to set it the become an empty array first before pushing a key value pair to it
+        }
+        this.keyMap[index].push([key, value])
+    }
 }
