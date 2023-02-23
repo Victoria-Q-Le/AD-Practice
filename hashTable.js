@@ -27,6 +27,11 @@ function hash(key, arrayLength){
 // - Not constant time - linear in key length
 // - Could be a little more random
 
+/////////////////BIG O///////////////
+// - Insertion: O(1)
+// - Deletion: O(1)
+// - Access: O(1)
+
 function hashImprovised(key, arrayLength){ //arrayLength is the amount of locker we have 
     let total = 0
     let prime = 31 //adding a prime number to the length can significantly reduce the cluster and collision
@@ -100,3 +105,4 @@ class HashTable {
         return keyArr
     }
 }
+
