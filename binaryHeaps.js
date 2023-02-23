@@ -40,8 +40,10 @@ class MaxBinaryHeap {
     extractMax(){
         const max = this.values[0]//swap the first value in the the values pro with the last one 
         const end =  this.values.pop()//pop from the values pro, so you can return the value at the end 
-        this.values[0] = end 
-        this.sinkDown() //helper method to sink the node down to correct position
+        if (this.values.length > 0){
+            this.values[0] = end 
+            this.sinkDown() //helper method to sink the node down to correct position
+        }
         return max//return the old root
     }
     sinkDown(){ //have the new root sink down to the correct spot
