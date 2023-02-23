@@ -126,7 +126,7 @@ class SinglyLinkedList {
     return removed//return the value of the node removed 
   }
   print(){
-    const arr []
+    const arr = []
     const current = this.head 
     while (current){
       arr.push(current.val)
@@ -138,7 +138,7 @@ class SinglyLinkedList {
     const node = this.head//swap the head and tail, create a variable called node and initialize it to be the head property 
     this.head = this.tail 
     this.tail = node 
-    const next //create a variable called next 
+    let next //create a variable called next 
     const prev = null //creat a variable called prev, prev has to be null because  we want to make the end of our list - the tail.next is null 
     for(const i = 0; i < this.length; i++){ //loop through the list 
       next = node.next //set next to be the next property on whatever node is 

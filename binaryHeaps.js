@@ -77,5 +77,80 @@ class MaxBinaryHeap {
                 this.values[swap] = element
                 idx = swap
             }
-        }
+    }
 }
+
+
+/////////////////////PRIORITY QUEUE////////////
+class Node {
+    constructor (value, priority){
+        this.value = value 
+        this.priority = priority
+    }
+}
+
+class PriorityQueue {
+    constructor(){
+        this.values = []
+    }
+    enqueue(val, priority){
+        let newNode = new Node (val, priority)
+        this.values.push(newNode)
+        this.bubbleUp()
+    }
+    bubbleUp(){
+        let idx = this.values.length - 1
+        const element = this.values[idx]
+        while(idx > 0){
+            let parentIdx = Math.floor((idx - 1)/2)
+            let parent = this.values[parentIdx]
+            if (element.priority >= parent.priority) break 
+            this.values[parentIdx] = element
+            this.values[idx] = parent
+            idx = parentIdx
+        }
+    }
+    dequeue(){
+        const min = this.values[0]
+        const end =  this.values.pop()
+        if (this.values.length > 0){
+            this.values[0] = end 
+            this.sinkDown() //helper method to sink the node down to correct position
+        }
+        return min//return the old root
+    }
+    sinkDown(){ //have the new root sink down to the correct spot
+            let idx = 0//your parent index starts at 0 (the root)
+            const length = this.values.length
+            const element = this.values[0]
+            while(true){
+                let leftChildIdx =  2 * idx + 1 //find the index of the left child and make sure within bound 
+                let rightChildIdx =  2 * idx + 2 //find the index of the right child and make sure within bound 
+                let leftChild, rightChild
+                let swap = null 
+
+                if (leftChildIdx < length){ //if the left or right child is greater than the element...swap. if both left and right child are larger, swap with the largest child 
+                    leftChild = this.values[leftChildIdx]
+                    if (leftChild.priority < element.priority){
+                        swap = leftChildIdx
+                    }
+                }
+
+                if (rightChildIdx < length){
+                    rightChild = this.values[rightChildIdx]
+                    if(
+                        (swap === null && rightChild.priority < element.priority) || (swap !== null && rightChild.priority < leftChild.priority)
+                    )
+                    {
+                        swap = rightChildIdx
+                    }
+                }
+                if (swap === null) break 
+                this.values[idx] = this.values[swap]
+                this.values[swap] = element
+                idx = swap
+            }
+    }
+}
+
+
