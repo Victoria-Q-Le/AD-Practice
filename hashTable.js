@@ -86,4 +86,17 @@ class HashTable {
         }
         return valueArr
     }
+    keys(){ //loop through the whole table and display all the keys 
+        let keyArr = []
+        for ( let i = 0; i < this.keyMap.length; i++){
+            if (this.keyMap[i]){
+                for ( let j = 0; j < this.keyMap[i].length; j++){
+                    if(!keyArr.includes(this.keyMap[i][j][0])){ //this way to handle duplicated keys 
+                        keyArr.push(this.keyMap[i][j][0])
+                    }
+                }
+            }
+        }
+        return keyArr
+    }
 }
