@@ -43,7 +43,7 @@ function hashImprovised(key, arrayLength){ //arrayLength is the amount of locker
 // 2. Linear Probing: when we find the collision, we search through the array to find the next empty slot. What if no empty locker? How do we know which one we decided to move to a diff locker and which one?
 
 class HashTable {
-    constructor(size =53){
+    constructor(size =53){//default size is 53 but we can change this const ht = new HashTable(17) etc..
         this.keyMap = new Array(size)
     }
     _hash(key){
@@ -62,5 +62,15 @@ class HashTable {
             this.keyMap[index] = [] //if the locker is not occupied we then have to set it the become an empty array first before pushing a key value pair to it
         }
         this.keyMap[index].push([key, value])
+    }
+    get(key){
+        let index = this._hash(key)
+        if(this.keyMap[index]){
+            for (let i = 0; i < this.keyMap[index].length; i++){
+                if (this.keyMap[index][i][0] === key)
+                return this.keyMap[index][i][1]
+            }
+        }
+        return undefined
     }
 }
