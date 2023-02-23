@@ -17,6 +17,11 @@
 ////////////////////////STORING HEAPS//////////////////////
 // For any index of an array n the left child is stored at 2n + 1 and the right child is 2n +2 
 
+// ///////////////////////BIG O/////////////////////
+// - Insertion: O(logN)
+// - Removal: O(logN)
+// - Search: O(N)
+
 class MaxBinaryHeap {
     constructor(){
         this.values = []
